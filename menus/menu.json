@@ -4,7 +4,7 @@
       "id": "tools",
       "submenu": [
         {
-          "label": "C#",
+          "label": "Demon - C#",
           "id": "tools.csharp",
           "submenu": [
             { "label": "Generate Code...", "id": "tools.csharp.generate", "command": "csharp:generate" },
