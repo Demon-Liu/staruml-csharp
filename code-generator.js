@@ -652,7 +652,11 @@ class CSharpCodeGenerator {
    * @param {Object} options
    */
   writeConstructor (codeWriter, elem, options) {
-    if (elem.name.length > 0) {
+    if (elem.stereotype === 'EDTO')
+    {
+        //
+    }
+    else if (elem.name.length > 0) {
       var terms = []
       // Doc
       this.writeDoc(codeWriter, elem.documentation, options)
