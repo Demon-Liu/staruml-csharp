@@ -668,6 +668,7 @@ class CSharpCodeGenerator {
       terms.push(elem.name + '()')
       codeWriter.writeLine(terms.join(' ') + ' {')
       codeWriter.writeLine('}')
+      codeWriter.writeLine('// stereotype' + elem.stereotype)
     }
   }
 
