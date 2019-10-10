@@ -94,7 +94,7 @@ class CSharpCodeGenerator {
         codeWriter.writeLine('using System;')
         codeWriter.writeLine('using System.Collections.Generic;')
         codeWriter.writeLine('using System.Linq;')
-        codeWriter.writeLine('using System.Text;')
+        codeWriter.writeLine('using System.Text;//AnnotationType')
         codeWriter.writeLine()
         // this.writeAnnotationType(codeWriter, elem, options, isAnnotationType);
         this.writeNamespace('writeAnnotationType', codeWriter, elem, options, isAnnotationType)
@@ -107,7 +107,7 @@ class CSharpCodeGenerator {
         codeWriter.writeLine('using System;')
         codeWriter.writeLine('using System.Collections.Generic;')
         codeWriter.writeLine('using System.Linq;')
-        codeWriter.writeLine('using System.Text;')
+        codeWriter.writeLine('using System.Text;//Class')
         codeWriter.writeLine()
         // this.writeClass(codeWriter, elem, options, isAnnotationType);
         this.writeNamespace('writeClass', codeWriter, elem, options, isAnnotationType)
