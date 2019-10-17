@@ -630,16 +630,11 @@ class CSharpCodeGenerator {
 
       // property
       if (elem.stereotype === 'property') {
-        codeWriter.writeLine(terms.join(' ') + ' {')
-        codeWriter.indent()
         if (elem.isReadOnly) {
-          codeWriter.writeLine('get {')
-          codeWriter.writeLine('}')
+          codeWriter.writeLine(terms.join(' ') + ' { get; }')
         } else {
-          codeWriter.writeLine('get; set;')
+          codeWriter.writeLine(terms.join(' ') + ' { get; set; }')
         }
-        codeWriter.outdent()
-        codeWriter.writeLine('}')
       } else {
         codeWriter.writeLine(terms.join(' ') + ';')
       }
