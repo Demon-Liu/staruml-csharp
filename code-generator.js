@@ -418,8 +418,9 @@ class CSharpCodeGenerator {
       }
     }
 
-    codeWriter.writeLine(terms.join(' ') + ' {')
-    codeWriter.writeLine()
+    //codeWriter.writeLine(terms.join(' ') + ' {')
+    codeWriter.writeLine(terms.join(' '))
+    codeWriter.writeLine('{')
     codeWriter.indent()
 
     // Constructor
@@ -652,7 +653,22 @@ class CSharpCodeGenerator {
    * @param {Object} options
    */
   writeConstructor (codeWriter, elem, options) {
-    if (elem.stereotype === 'EDTO')
+    // Extends
+    var _extends = this.getSuperClasses(elem)
+    if (_extends.length > 0 && _extends[0].name === 'IntegrationEvent') {
+      var _type = this.getType(elem.attributes[0])
+      var terms = []
+      // Doc
+      this.writeDoc(codeWriter, elem.documentation, options)
+      // Visibility
+      var visibility = this.getVisibility(elem)
+      if (visibility) {
+        terms.push(visibility)
+      }
+      terms.push(elem.name + '(' + _type + ' eventObj) => ' + elem.attributes[0].name + ' = eventObj')
+      codeWriter.writeLine(terms.join(' ') + ';')
+    }
+    else if (elem.stereotype === 'EDTO')
     {
         //
     }
